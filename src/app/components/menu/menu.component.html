@@ -1,2 +1,18 @@
-<p-tabMenu class="menu-alignment" [model]="items" [activeItem]="activeItem"
-    (activeItemChange)="onActiveItemChange($event)"></p-tabMenu>
+<p-tabMenu class="menu-alignment" [model]="items" [activeItem]="activeItem" 
+    (activeItemChange)="onActiveItemChange($event)"
+></p-tabMenu>
+
+@switch (selectedItem) {
+    @case ('Reports') {
+        <app-report></app-report>
+    }
+    @case ('Files') {
+        <app-file></app-file>
+    }
+    @case ('Settings') {
+        <app-setting></app-setting>
+    }
+    @default {
+        <app-home></app-home>
+    }
+}

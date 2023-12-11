@@ -1,17 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { TabMenuModule } from 'primeng/tabmenu';
+import { HomeComponent } from '../home/home.component';
+import { ReportComponent } from '../report/report.component';
+import { FileComponent } from '../file/file.component';
+import { SettingComponent } from '../setting/setting.component';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [TabMenuModule],
+  imports: [TabMenuModule, HomeComponent, ReportComponent, FileComponent, SettingComponent],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss'
 })
 export class MenuComponent implements OnInit {
   items: MenuItem[] | undefined;
   activeItem: MenuItem | undefined;
+  selectedItem: String | undefined;
 
   constructor() { }
 
@@ -27,6 +32,6 @@ export class MenuComponent implements OnInit {
   }
 
   onActiveItemChange(event: any) {
-    console.log(event);
+    this.selectedItem = event.label;
   }
 }
